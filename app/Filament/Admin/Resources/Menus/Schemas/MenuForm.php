@@ -27,7 +27,8 @@ final class MenuForm
                             ->live(onBlur: true)
                             ->afterStateUpdated(function (?string $state, Set $set) {
                                 $set('identifier', Str::slug($state));
-                            }),
+                            })
+							->hiddenOn('edit'),
                         TextInput::make('name')
                             ->required(),
                     ]),
