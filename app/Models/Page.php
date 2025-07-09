@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * @property-read int $id
@@ -17,8 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $meta_title
  * @property string|null $meta_description
  * @property string|null $meta_keywords
- * @property CarbonImmutable $created_at
- * @property CarbonImmutable $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  */
 final class Page extends Model
 {
