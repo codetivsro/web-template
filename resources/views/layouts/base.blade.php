@@ -19,7 +19,11 @@
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX');
     </script>
-    <title>@yield('title')</title>
+    @if(request()->routeIs('home'))
+        <title>@yield('title')</title>
+    @else
+        <title>@yield('title') | {{ config('site.name') }}</title>
+    @endif
     @vite('resources/js/app.js')
     @livewireStyles
     @stack('head')

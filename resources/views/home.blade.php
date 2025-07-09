@@ -1,4 +1,4 @@
-<x-app-layout title="Domů">
+<x-app-layout title="Super čuper web">
     <div class="py-[100px]">
         <x-container class="text-center">
             <h1 class="mb-4 text-3xl md:text-4xl font-semibold">Super čuper web</h1>
