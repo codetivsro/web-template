@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Admin\Resources\Pages\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
@@ -31,9 +31,8 @@ final class PageForm
                             ->afterStateUpdated(function (?string $state, Set $set) {
                                 $set('slug', Str::slug($state));
                             }),
-                        Textarea::make('content')
-                            ->required()
-                            ->columnSpanFull(),
+                        RichEditor::make('content')
+                            ->required(),
                         FileUpload::make('image')
                             ->image(),
                     ]),

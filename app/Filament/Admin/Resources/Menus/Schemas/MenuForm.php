@@ -28,7 +28,7 @@ final class MenuForm
                             ->afterStateUpdated(function (?string $state, Set $set) {
                                 $set('identifier', Str::slug($state));
                             })
-							->hiddenOn('edit'),
+                            ->hiddenOn('edit'),
                         TextInput::make('name')
                             ->required(),
                     ]),
