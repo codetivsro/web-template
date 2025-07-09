@@ -3,7 +3,7 @@
 @section('title', $title ?? '')
 
 @section('body')
-    @include('layouts.components.header')
+    <x-header/>
     <main>{{ $slot }}</main>
-    @include('layouts.components.footer')
+    <x-footer/>
 @endsection
