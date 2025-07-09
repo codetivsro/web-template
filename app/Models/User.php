@@ -49,4 +49,9 @@ final class User extends Authenticatable implements FilamentUser
     {
         return $this->is_admin;
     }
+
+    public function isSuperAdmin(): bool
+    {
+        return str_ends_with($this->email, '@codetiv.cz');
+    }
 }
