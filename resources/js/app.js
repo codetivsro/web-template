@@ -3,8 +3,6 @@ import '../css/app.css';
 
 import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
 
-document.documentElement.classList.add('cc--darkmode');
-
 CookieConsent.run({
     guiOptions: {
         consentModal: {
@@ -38,7 +36,6 @@ CookieConsent.run({
                     acceptAllBtn: "Přijmout vše",
                     acceptNecessaryBtn: "Odmítnout volitelné",
                     showPreferencesBtn: "Nastavení cookies",
-                    footer: "<a href=\"#link\">Zásady ochrany osobních údajů</a>\n<a href=\"#link\">Obchodní podmínky</a>"
                 },
                 preferencesModal: {
                     title: "Centrum předvoleb cookies",
@@ -71,10 +68,6 @@ CookieConsent.run({
                             title: "Reklamní cookies",
                             description: "Používají se k zobrazování relevantních reklam a sledování efektivity marketingových kampaní.",
                             linkedCategory: "marketing"
-                        },
-                        {
-                            title: "Další informace",
-                            description: "V případě dotazů ohledně používání cookies nás <a class=\"cc__link\" href=\"#yourdomain.com\">kontaktujte</a>."
                         }
                     ]
                 }
