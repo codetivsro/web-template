@@ -19,6 +19,7 @@ final class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@codetiv.cz',
             'password' => 'admin',
+            'is_admin' => true,
         ]);
     }
 }
