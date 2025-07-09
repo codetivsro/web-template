@@ -6,7 +6,6 @@ namespace App\Filament\Admin\Resources\ContentBlocks\Schemas;
 
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
@@ -30,17 +29,11 @@ final class ContentBlockForm
                             ->visible(fn () => auth()->user()->isSuperAdmin()),
                         Select::make('type')
                             ->options([
-                                'text' => 'Text',
                                 'editor' => 'Editor',
                             ])
                             ->required()
                             ->live()
                             ->visible(fn () => auth()->user()->isSuperAdmin()),
-                        Textarea::make('content_text')
-                            ->label('Content')
-                            ->statePath('content')
-                            ->disabled(fn (Get $get) => $get('type') !== 'text')
-                            ->hidden(fn (Get $get) => $get('type') !== 'text'),
                         RichEditor::make('content_editor')
                             ->label('Content')
                             ->statePath('content')
