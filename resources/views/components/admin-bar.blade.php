@@ -20,38 +20,18 @@
         <div @click.outside.window="show = false" class="absolute left-0 top-16 p-5 w-max flex flex-col gap-4 rounded-md shadow-lg bg-gray-900" x-show="show">
             <a href="{{ url('/admin') }}"
                class="cursor-pointer w-full flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="size-4">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5"/>
-                    <path d="M10 12l-2 -2.2l.6 -1"/>
-                </svg>
+                <x-heroicon-m-power class="size-5"/>
                 <span>Administrace</span>
             </a>
             <a href="{{ route('cache.clear') }}" class="cursor-pointer w-full flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="size-4">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/>
-                    <path d="M4 6v6a8 3 0 0 0 16 0v-6"/>
-                    <path d="M4 12v6a8 3 0 0 0 16 0v-6"/>
-                </svg>
+                <x-heroicon-o-circle-stack class="size-5"/>
                 <span>Smazat cache</span>
             </a>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button type="submit"
                         class="cursor-pointer w-full flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="size-4">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2"/>
-                        <path d="M15 12h-12l3 -3"/>
-                        <path d="M6 15l-3 -3"/>
-                    </svg>
+                    <x-heroicon-m-arrow-left-start-on-rectangle class="size-5"/>
                     <span>Odhlásit se</span>
                 </button>
             </form>
