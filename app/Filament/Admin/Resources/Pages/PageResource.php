@@ -49,4 +49,14 @@ final class PageResource extends Resource
             'edit' => EditPage::route('/{record}/edit'),
         ];
     }
+
+    public static function getModelLabel(): string
+    {
+        return __('admin/resources.pages.title.singular');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('admin/resources.pages.title.plural');
+    }
 }

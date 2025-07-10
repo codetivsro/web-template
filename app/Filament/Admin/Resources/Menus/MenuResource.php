@@ -49,4 +49,14 @@ final class MenuResource extends Resource
             'edit' => EditMenu::route('/{record}/edit'),
         ];
     }
+
+    public static function getModelLabel(): string
+    {
+        return __('admin/resources.menus.title.singular');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('admin/resources.menus.title.plural');
+    }
 }

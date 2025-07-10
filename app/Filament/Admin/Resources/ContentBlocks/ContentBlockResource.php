@@ -49,4 +49,14 @@ final class ContentBlockResource extends Resource
             'edit' => EditContentBlock::route('/{record}/edit'),
         ];
     }
+
+    public static function getModelLabel(): string
+    {
+        return __('admin/resources.blocks.title.singular');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('admin/resources.blocks.title.plural');
+    }
 }
