@@ -22,7 +22,7 @@ final class MenuResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Bars3;
 
     public static function form(Schema $schema): Schema
     {
