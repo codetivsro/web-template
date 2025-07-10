@@ -38,7 +38,7 @@ final class ContentBlockPolicy
      */
     public function update(User $user, ContentBlock $contentBlock): bool
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     /**

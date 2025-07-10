@@ -11,6 +11,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -56,6 +57,11 @@ final class ContentBlocksTable
                         $record->update([
                             'content' => $data[self::getCurrentContentKey($record)],
                         ]);
+
+                        Notification::make()
+                            ->success()
+                            ->title(__('filament-panels::resources/pages/edit-record.notifications.saved.title'))
+                            ->send();
                     })
                     ->modalWidth('lg'),
             ])
