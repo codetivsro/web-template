@@ -9,6 +9,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -45,6 +46,10 @@ final class AdminPanelProvider extends PanelProvider
                     ->label(__('Show frontend'))
                     ->icon('heroicon-o-eye')
                     ->url(url('/'), true),
+            ])
+            ->navigationGroups([
+                NavigationGroup::make('CMS'),
+                NavigationGroup::make('Custom'),
             ])
             ->middleware([
                 EncryptCookies::class,
