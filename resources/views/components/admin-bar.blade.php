@@ -8,18 +8,18 @@
             <a href="{{ url('/admin') }}"
                class="cursor-pointer w-full flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100">
                 <x-heroicon-m-power class="size-5"/>
-                <span>Administrace</span>
+                <span>{{ __('Administration') }}</span>
             </a>
             <a href="{{ route('cache.clear') }}" class="cursor-pointer w-full flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100">
                 <x-heroicon-o-circle-stack class="size-5"/>
-                <span>Smazat cache</span>
+                <span>{{ __('Delete cache') }}</span>
             </a>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button type="submit"
                         class="cursor-pointer w-full flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100">
                     <x-heroicon-m-arrow-left-start-on-rectangle class="size-5"/>
-                    <span>Odhlásit se</span>
+                    <span>{{ __('Log out') }}</span>
                 </button>
             </form>
         </div>

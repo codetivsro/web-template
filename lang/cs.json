@@ -1,3 +1,6 @@
 {
-	"Show frontend": "Zobrazit frontend"
+	"Show frontend": "Zobrazit frontend",
+	"Administration": "Administrace",
+	"Delete cache": "Smazat cache",
+	"Log out": "Odhlásit se"
 }
