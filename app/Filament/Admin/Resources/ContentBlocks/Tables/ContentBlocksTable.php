@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace App\Filament\Admin\Resources\ContentBlocks\Tables;
 
+use App\Models\ContentBlock;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -31,12 +35,42 @@ final class ContentBlocksTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->visible(fn () => auth()->user()?->isSuperAdmin()),
+                Action::make('edit-content')
+                    ->label(__('Edit content'))
+                    ->schema([
+                        Textarea::make('content_text')
+                            ->label('Content')
+                            ->visible(fn (ContentBlock $record) => $record->type === 'text'),
+                        RichEditor::make('content_editor')
+                            ->label('Content')
+                            ->visible(fn (ContentBlock $record) => $record->type === 'editor'),
+                    ])
+                    ->fillForm(function (ContentBlock $record) {
+                        return [
+                            self::getCurrentContentKey($record) => $record->content,
+                        ];
+                    })
+                    ->action(function (ContentBlock $record, array $data) {
+                        $record->update([
+                            'content' => $data[self::getCurrentContentKey($record)],
+                        ]);
+                    }),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    private static function getCurrentContentKey(ContentBlock $record): string
+    {
+        return match ($record->type) {
+            'editor' => 'content_editor',
+            'text' => 'content_text',
+            default => 'content',
+        };
     }
 }
