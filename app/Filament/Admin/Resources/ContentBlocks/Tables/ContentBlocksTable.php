@@ -41,10 +41,10 @@ final class ContentBlocksTable
                     ->label(__('Edit content'))
                     ->schema([
                         Textarea::make('content_text')
-                            ->label('Content')
+                            ->hiddenLabel()
                             ->visible(fn (ContentBlock $record) => $record->type === 'text'),
                         RichEditor::make('content_editor')
-                            ->label('Content')
+                            ->hiddenLabel()
                             ->visible(fn (ContentBlock $record) => $record->type === 'editor'),
                     ])
                     ->fillForm(function (ContentBlock $record) {
@@ -56,7 +56,8 @@ final class ContentBlocksTable
                         $record->update([
                             'content' => $data[self::getCurrentContentKey($record)],
                         ]);
-                    }),
+                    })
+                    ->modalWidth('lg'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
