@@ -46,7 +46,7 @@ final class ContentBlockPolicy
      */
     public function delete(User $user, ContentBlock $contentBlock): bool
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     /**
@@ -54,7 +54,7 @@ final class ContentBlockPolicy
      */
     public function restore(User $user, ContentBlock $contentBlock): bool
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     /**
@@ -62,6 +62,6 @@ final class ContentBlockPolicy
      */
     public function forceDelete(User $user, ContentBlock $contentBlock): bool
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 }
